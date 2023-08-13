@@ -12,4 +12,11 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import 'the-new-css-reset/css/reset.css';
+body {
+  max-width: 1140px;
+  margin: auto;
+  padding: 15px;
+}
+</style>

@@ -5,7 +5,7 @@
     </li>
   </ul>
   <div v-if="!isLoading">
-    <ul v-if="current !== 'params'">
+    <ul class="list" v-if="current !== 'params'">
       <li v-for="item in data" :key="item.name">
         <button @click="setCurrentData(item.id, item.name)">{{ item.name }}</button>
       </li>
@@ -62,21 +62,50 @@ onMounted(() => {
 </script>
 <style scoped lang="scss">
 ul {
-  column-count: 5;
-  @media screen and (max-width: 768px) {
-    column-count: 3;
-  }
-  @media screen and (max-width: 480px) {
-    column-count: 2;
-  }
-  li {
-    list-style: none;
-    button {
-      cursor: pointer;
-    }
-  }
   &.breadcrumbs {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    li {
+      button {
+        cursor: pointer;
+      }
+      &:nth-child(1) {
+        button {
+          font-weight: 800;
+        }
+      }
+      &:nth-child(n + 2) {
+        button {
+          color: red;
+          font-size: 20px;
+          font-weight: 800;
+        }
+      }
+      &:nth-child(4) {
+        button {
+          color: #000;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  &.list {
+    column-count: 5;
+    @media screen and (max-width: 768px) {
+      column-count: 3;
+    }
+    @media screen and (max-width: 480px) {
+      column-count: 2;
+    }
+    li {
+      list-style: none;
+      button {
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>
